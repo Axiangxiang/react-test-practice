@@ -3,12 +3,12 @@ import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
 
 import { App } from './app/App';
-import { store } from './app/_helpers';
-import { configureFakeBackend } from './app/_helpers';
+import { store, configureFakeBackend } from './app/_helpers';
 
 configureFakeBackend();
 
 ReactDom.render(
   <Provider store={store}>
     <App />
-  </Provider>, document.getElementById('root'));
+  </Provider>, document.getElementById('root'),
+);

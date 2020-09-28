@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('addUser', (firstName, lastName, username, password) => {
+  const users = JSON.parse(localStorage.getItem('users')) || [];
+  const newUser = {
+    firstName, lastName, username, password,
+  };
+  newUser.id = users.length ? Math.max(...users.map((user) => user.id)) + 1 : 1;
+  users.push(newUser);
+  localStorage.setItem('users', JSON.stringify(users));
+});
