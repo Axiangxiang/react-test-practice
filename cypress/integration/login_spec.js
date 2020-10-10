@@ -1,13 +1,20 @@
+import { configureFakeBackend } from '../../src/app/_helpers';
+
 describe('Login page', () => {
   const testUser = {
     firstName: 'test', lastName: 'test', username: 'test', password: 'test',
   };
+
   beforeEach(() => {
     cy.visit('/');
-    cy.get('input[name=username]').clear();
-    cy.get('input[name=password]').clear();
-    localStorage.clear();
-    localStorage.setItem('users', JSON.stringify([{ ...testUser, id: 1 }]));
+    // configureFakeBackend();
+    // cy.fixture('testUser.json')
+    //   .then((user) => fetch('/users/register', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(user),
+    //   }));
+    localStorage.setItem('users', JSON.stringify([{ ...testUser, id: 1 }])); // request
   });
 
   it('should visit the login page', () => {

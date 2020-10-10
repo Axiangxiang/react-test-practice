@@ -17,11 +17,9 @@ function login(username, password) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ username, password }),
   };
-  console.log(333);
   return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
     .then(handleResponse)
     .then((user) => {
-      console.log(666);
       // store user details and jwt token in local storage to keep user logged in between page refreshes
       localStorage.setItem('user', JSON.stringify(user));
 
@@ -84,11 +82,10 @@ function _delete(id) {
 
 function handleResponse(response) {
   console.log('response:', response);
-  console.log(777);
   return response.text().then((text) => {
+    console.log('text:', text);
     const data = text && JSON.parse(text);
     if (!response.ok) {
-      console.log(888);
       if (response.status === 401) {
         // auto logout if 401 response returned from api
         logout();
@@ -98,7 +95,6 @@ function handleResponse(response) {
       const error = (data && data.message) || response.statusText;
       return Promise.reject(error);
     }
-    console.log(999);
     return data;
   });
 }
