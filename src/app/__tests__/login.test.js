@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import { LoginPage } from '../LoginPage/LoginPage';
 import '@testing-library/jest-dom';
+import 'babel-polyfill';
 
 describe('loginPage', () => {
   const initialState = { authentication: { } };
@@ -14,6 +15,7 @@ describe('loginPage', () => {
   const store = mockStore(initialState);
 
   it('should show username validation message', async () => {
+    // eslint-disable-next-line max-len
     const { getByTestId, findByText, getByLabelText } = render(<Provider store={store}><BrowserRouter><LoginPage /></BrowserRouter></Provider>);
     const username = getByLabelText('Username');
     const password = getByLabelText('Password');
@@ -27,6 +29,7 @@ describe('loginPage', () => {
   });
 
   it('should show password validation message', async () => {
+    // eslint-disable-next-line max-len
     const { getByTestId, findByText, getByLabelText } = render(<Provider store={store}><BrowserRouter><LoginPage /></BrowserRouter></Provider>);
     const username = getByLabelText('Username');
     const password = getByLabelText('Password');
