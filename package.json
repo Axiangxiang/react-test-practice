@@ -9,6 +9,7 @@
     "cypress:open": "cypress open",
     "cypress": "start-server-and-test start http://localhost:1234 cypress:run",
     "test": "NODE_ENV= jest --silent",
+    "test:coverage": "jest --coverage",
     "fix-hooks": "rm -rf .git/hooks && rm -rf node_modules/husky && npm install",
     "prepush": "npm test && npm run jest-coverage-ratchet-auto-commit",
     "jest-coverage-ratchet-auto-commit": "jest-coverage-ratchet && (git add package.json && git commit -m 'AUTO INCREASE TEST COVERAGE') || echo 'continue'",

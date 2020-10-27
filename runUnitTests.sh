@@ -1,4 +1,4 @@
 #!/bin/bash
 
 npm install
-npm run test --coverage
+npm run test:coverage
