@@ -2,5 +2,10 @@
   "supportFile": "cypress/support/index.js",
   "baseUrl": "http://localhost:1234",
   "integrationFolder": "cypress/integration",
-  "testFiles": "**/*_spec.js"
+  "testFiles": "**/*_spec.js",
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "./results/my-test-output.xml",
+    "toConsole": true
+  }
 }
